@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6 d-flex mb-4 mt-4 mx-auto flex-column">
+        <ng-container *ngIf="loginMessage?.length > 0">
+          <div class="alert alert-danger alert-dismissible text-center">
+            {{loginMessage}}
+          </div>
+        </ng-container>
+        <form novalidate #myform="ngForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" id="email" type="email" [(ngModel)]="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" id="password" type="password" [(ngModel)]="password" name="password" required>
+          </div>
+          <div class="d-grid gap-2 text-center">
+            <button class="btn btn-primary btn-sm btn-block  mt-4" (click)="login(myform)" [disabled]="myform.invalid && myform.touched">Login</button>
+
+            <hr>
+            <h4 class="text-uppercase"><strong>Login Using</strong></h4>
+
+            <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/register"
+              class="link-danger">Register</a></p>
+
+
+
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
